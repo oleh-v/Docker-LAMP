@@ -1,0 +1,35 @@
+version: "2"
+
+services:
+
+  php:
+    build: ./conf/php
+    container_name: php_http
+    ports:
+        - 80:80
+    volumes:
+      - ./conf/php/php.ini:/usr/local/etc/php/conf.d/user.ini
+      - ./www:/var/www/html
+
+  mysql:
+    image: mysql:5.7.12
+    container_name: mysql
+    volumes:
+     - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=cool_base
+      - MYSQL_ROOT_PASSWORD=ROOT_PASSWORD
+      - MYSQL_USER=DB_USER
+      - MYSQL_PASSWORD=DB_USER_PASSWORD
+    ports:
+      - 3306:3306
+
+  memcached:
+    image: memcached:1.5.7
+    container_name: memcached
+    environment:
+      - MEMCACHED_CACHE_SIZE=128
+      - MEMCACHED_USERNAME=mem_user
+      - MEMCACHED_PASSWORD=mem_pass
+    ports:
+      - 11211:11211
