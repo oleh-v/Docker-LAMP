@@ -1,5 +1,5 @@
 # Docker LAMP
-Quick start LAMP environment (Apache 2.4  MySQL 5.7 PHP 7.2 Memcached 1.5.7)
+Quick start LAMP environment with Docker (Apache 2.4  MySQL 5.7 PHP 7.2 Memcached 1.5.7)
 
 ## Requirements
 Docker and Docker-Compose should be installed
